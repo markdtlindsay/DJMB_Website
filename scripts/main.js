@@ -1,5 +1,5 @@
 // Launch date and time (UK time)
-const launchDate = new Date("2026-03-10T17:25:00");
+const launchDate = new Date("2026-03-10T17:30:00");
 
 const countdownView = document.getElementById("countdown-view");
 const siteView = document.getElementById("site-view");
