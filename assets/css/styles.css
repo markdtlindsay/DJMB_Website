@@ -40,30 +40,50 @@ footer {
   min-height: 100vh;
 }
 
-#whatsapp-button {
+.social-float {
   position: fixed;
   right: 1.5rem;
-  bottom: 1.5rem;
   z-index: 1000;
 
-  width: 60px;
-  height: 60px;
+  width: 75px;
+  height: 75px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
   border-radius: 50%;
-  background: #25D366;
+  background: transparent;
 
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.25);
 }
 
-#whatsapp-button img {
-  width: 28px;
-  height: 28px;
+.social-float img {
+  width: 36px;
+  height: 36px;
 }
 
-#whatsapp-button:hover {
-  transform: scale(1.05);
+.social-float:hover {
+  transform: scale(1.2);
+}
+
+#soundcloud-button {
+  bottom: 13.5rem;
+    filter: brightness(0) saturate(100%)
+          invert(43%) sepia(97%) saturate(2166%)
+          hue-rotate(2deg) brightness(101%) contrast(101%);
+}
+
+#instagram-button {
+  bottom: 7.5rem;
+    filter: brightness(0) saturate(100%)
+          invert(32%) sepia(98%) saturate(1863%)
+          hue-rotate(316deg) brightness(94%) contrast(101%);
+}
+
+#whatsapp-button {
+  bottom: 1.5rem;
+    filter: brightness(0) saturate(100%)
+          invert(46%) sepia(96%) saturate(463%)
+          hue-rotate(97deg) brightness(93%) contrast(90%);
 }
