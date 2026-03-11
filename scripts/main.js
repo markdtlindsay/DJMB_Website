@@ -39,7 +39,7 @@ const list = document.getElementById("gigs-list");
 if (!list) return;
 
 try {
-  const res = await fetch("/.netlify/functions/gigs");
+  const res = await fetch("/.netlify/functions/gigs?nocache=" + Date.now());
 const data = await res.json();
 
 if (!data.events || data.events.length === 0) {
