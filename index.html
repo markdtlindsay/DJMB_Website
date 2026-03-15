@@ -1,77 +1,95 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DJ Marky Boy – Coming Soon</title>
-  <style>
-    body {
-      margin: 0;
-      background: black;
-      color: #00ccff;
-      font-family: sans-serif;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      text-align: center;
-    }
-
-    #logo-container {
-      animation: spin 2s linear, settle 1.5s ease-in-out 2s forwards;
-    }
-
-    @keyframes spin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-
-    @keyframes settle {
-      to {
-        transform: translateY(-40px) scale(0.6);
-      }
-    }
-
-    #logo {
-      /* larger logo for better emphasis */
-      width: 300px;
-    }
-
-    #text-content {
-      opacity: 0;
-      animation: fadeIn 1s ease-in-out 2.5s forwards;
-      /* reduce gap from logo */
-      margin-top: 20px;
-    }
-
-    @keyframes fadeIn {
-      to {
-        opacity: 1;
-      }
-    }
-
-    h1 {
-      font-size: 3rem;
-      margin: 0px 0;
-    }
-
-    p {
-      font-size: 1.2rem;
-      color: #66e0ff;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DJ Marky Boy</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
 </head>
+
 <body>
-  <div id="logo-container">
-    <img src="assets/img/DJ_Marky_Boy_Logo_Final.png" alt="DJ Marky Boy Logo" id="logo" />
+  <div id="countdown-view">
+    <main>
+      <img src="assets/img/DJ_Marky_Boy_Logo_Final.png" alt="DJ Marky Boy logo">
+      <h1>DJ Marky Boy</h1>
+      <p>Launching in:</p>
+      <div id="countdown-timer">00:00:00:00</div>
+    </main>
   </div>
 
-  <div id="text-content">
-    <h1>DJ Marky Boy</h1>
-    <p>Hardstyle energy is on the way...<br />Website coming soon.</p>
+  <div id="site-view" hidden>
+    <header>
+      <img src="assets/img/DJ_Marky_Boy_Logo_Final.png" alt="DJ Marky Boy logo">
+      <h1>DJ Marky Boy</h1>
+      <p>DJ. Events. Good vibes.</p>
+    </header>
+
+    <main>
+      <section id="about">
+        <h2>About DJ Marky Boy</h2>
+        <p>Find out more about DJ Marky Boy.</p>
+        <button id="about-open-button" type="button">Read more</button>
+      </section>
+
+      <section id="gigs">
+        <h2>Upcoming Gigs</h2>
+        <ul id="gigs-list">
+          <li>Loading gigs...</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; <span id="copyright-year"></span> DJ Marky Boy</p>
+    </footer>
+
+    <a id="soundcloud-button" class="social-float" href="https://soundcloud.com/mark-watson-865481995" target="_blank"
+      rel="noopener noreferrer" aria-label="Visit DJ Marky Boy on SoundCloud">
+      <img src="assets/icons/soundcloud.svg" alt="SoundCloud Icon">
+    </a>
+
+    <a id="instagram-button" class="social-float" href="https://instagram.com/_djmarkyboy_ravecity/" target="_blank"
+      rel="noopener noreferrer" aria-label="Visit DJ Marky Boy on Instagram">
+      <img src="assets/icons/instagram.svg" alt="Instagram Icon">
+    </a>
+
+    <a id="whatsapp-button" class="social-float" href="https://wa.me/447483816391" target="_blank"
+      rel="noopener noreferrer" aria-label="Contact DJ Marky Boy on WhatsApp">
+      <img src="assets/icons/whatsapp.svg" alt="WhatsApp Icon">
+    </a>
   </div>
+  <div id="aboutModal" class="modal">
+    <div class="modal-content">
+
+      <span id="closeModal" class="modal-close">&times;</span>
+
+      <h2>About DJ Marky Boy</h2>
+
+      <p>I’m <strong>DJ Marky Boy</strong> – full of energy, big beats, and party vibes!</p>
+
+      <p>I have <strong>Autism</strong> and <strong>ADHD</strong>, and that’s my superpower. It’s what makes me
+        creative, enthusiastic, and brilliant at getting people excited. I bring that spark to every event – whether
+        it’s a kids’ party, a silent disco, a wedding, or a karaoke night.</p>
+
+      <p>I love <strong>GBX</strong>, <strong>hardstyle</strong>, and <strong>rawstyle</strong> – and I’ve got the
+        playlists to prove it. I’m great at organising games, reading the crowd, and making sure everyone feels included
+        and safe.</p>
+
+      <p><strong>A couple of quick things:</strong></p>
+
+      <p>
+        🚫 No fireworks<br>
+        🎈 No balloons (unless helium!)
+      </p>
+
+      <p>My hours are flexible, I work with a deposit, and I’m all about making your event
+        <strong>unforgettable</strong>.
+      </p>
+
+    </div>
+  </div>
+  <script src="scripts/main.js"></script>
 </body>
+
 </html>

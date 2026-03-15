@@ -124,3 +124,45 @@ footer {
   font-size: 1.5rem;
   cursor: pointer;
 }
+
+#gigs-list {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.gig-card {
+  background: linear-gradient(180deg, rgba(20, 20, 20, 0.95), rgba(40, 40, 40, 0.95));
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  padding: 1.25rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  text-align: left;
+}
+
+.gig-date {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.8;
+  margin-bottom: 0.75rem;
+}
+
+.gig-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 0.75rem;
+}
+
+.gig-venue {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.gig-description {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  opacity: 0.9;
+}
