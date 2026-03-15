@@ -56,7 +56,7 @@ async function loadGigs() {
     });
 
     data.events.forEach(event => {
-
+      console.log("Gig description:", event.description);
       const date = new Date(event.start);
 
       const card = document.createElement("div");
