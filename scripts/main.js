@@ -80,7 +80,7 @@ async function loadGigs() {
 function linkifyText(text) {
   if (!text) return "";
 
-  const regex = /(https?:\/\/[^\s]+)(?:\s*<([^>]+)>)?/g;
+  const regex = /(https?:\/\/[^\s"<]+)(?:\s*\[([^\]]+)\])?/g;
 
   return text.replace(regex, (match, url, label) => {
     const linkText = label || url;
