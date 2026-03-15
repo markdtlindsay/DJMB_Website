@@ -12,6 +12,8 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
   line-height: 1.5;
+  background: #03152a;
+  color: #eafcff;
 }
 
 img {
