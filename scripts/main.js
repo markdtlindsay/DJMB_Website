@@ -66,7 +66,7 @@ async function loadGigs() {
         <div class="gig-date">${formatter.format(date)}</div>
         <div class="gig-title">${event.title}</div>
         <div class="gig-venue">${event.venue || ""}</div>
-        <div class="gig-description">${event.description || ""}</div>
+        <div class="gig-description">${linkifyText(event.description || "")}</div>
       `;
 
       list.appendChild(card);
