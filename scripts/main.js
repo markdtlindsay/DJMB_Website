@@ -59,14 +59,20 @@ async function loadGigs() {
 
       const date = new Date(event.start);
 
-      const li = document.createElement("li");
-      li.textContent = formatter.format(date) + " – " + event.title;
+      const card = document.createElement("div");
+      card.className = "gig-card";
 
-      list.appendChild(li);
+      card.innerHTML = `
+        <div class="gig-date">${formatter.format(date)}</div>
+        <div class="gig-title">${event.title}</div>
+        <div class="gig-venue">${event.venue || ""}</div>
+      `;
+
+      list.appendChild(card);
 
     });
   } catch (err) {
-    list.innerHTML = "<li>Unable to load gigs</li>";
+    list.innerHTML = "<li>No gigs found</li>";
   }
 
 }
