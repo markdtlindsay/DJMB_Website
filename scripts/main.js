@@ -63,11 +63,20 @@ async function loadGigs() {
       card.className = "gig-card";
 
       card.innerHTML = `
-        <div class="gig-date">${formatter.format(date)}</div>
-        <div class="gig-title">${event.title}</div>
-        <div class="gig-venue">${event.venue || ""}</div>
-        <div class="gig-description">${linkifyText(event.description || "")}</div>
-      `;
+        <div class="gig-poster">
+
+        <div class="gig-poster-date">
+          ${formatter.format(date)}
+        </div>
+
+        <div class="gig-poster-body">
+          <div class="gig-title">${event.title}</div>
+          <div class="gig-venue">${event.venue || ""}</div>
+          <div class="gig-description">${linkifyText(event.description || "")}</div>
+        </div>
+
+      </div>
+    `;
 
       list.appendChild(card);
 
