@@ -42,6 +42,12 @@ footer {
   min-height: 100vh;
 }
 
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
 .social-float {
   position: fixed;
   right: 1.5rem;
