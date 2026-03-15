@@ -133,9 +133,9 @@ footer {
 
 .gig-card {
   background:
-    radial-gradient(circle at top left, rgba(255, 255, 255, 0.08), transparent 35%),
-    linear-gradient(160deg, rgba(15, 15, 15, 0.96), rgba(35, 35, 35, 0.96));
-  border: 1px solid rgba(255, 255, 255, 0.14);
+    radial-gradient(circle at top left, rgba(0, 200, 255, 0.08), transparent 35%),
+    linear-gradient(160deg, rgba(0, 15, 30, 0.95), rgba(0, 35, 60, 0.95));
+  border: 1px solid rgba(0, 200, 255, 0.35);
   border-radius: 20px;
   padding: 1.25rem;
   box-shadow: 0 14px 36px rgba(0, 0, 0, 0.4);
@@ -164,7 +164,7 @@ footer {
 }
 
 .gig-description {
-  color: rgba(255,255,255,0.85);
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .gig-description a {
