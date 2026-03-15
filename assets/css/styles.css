@@ -153,22 +153,28 @@ footer {
 }
 
 .gig-title {
-  font-size: 1.5rem;
+  color: #ffffff;
+  font-size: 1.6rem;
   font-weight: 700;
-  line-height: 1.1;
-  margin-bottom: 0.75rem;
 }
 
 .gig-venue {
-  font-size: 1rem;
+  color: #ffb347;
   font-weight: 600;
-  margin-bottom: 0.75rem;
 }
 
 .gig-description {
-  font-size: 0.95rem;
-  line-height: 1.5;
-  opacity: 0.9;
+  color: rgba(255,255,255,0.85);
+}
+
+.gig-description a {
+  color: #4da3ff;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.gig-description a:hover {
+  text-decoration: underline;
 }
 
 .gig-poster {
