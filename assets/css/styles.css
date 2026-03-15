@@ -132,12 +132,15 @@ footer {
 }
 
 .gig-card {
-  background: linear-gradient(180deg, rgba(20, 20, 20, 0.95), rgba(40, 40, 40, 0.95));
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 18px;
+  background:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.08), transparent 35%),
+    linear-gradient(160deg, rgba(15, 15, 15, 0.96), rgba(35, 35, 35, 0.96));
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 20px;
   padding: 1.25rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.4);
   text-align: left;
+  overflow: hidden;
 }
 
 .gig-date {
