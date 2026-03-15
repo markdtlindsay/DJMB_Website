@@ -32,43 +32,65 @@ document.getElementById("copyright-year").textContent =
   new Date().getFullYear();
 
 // Load gigs from gigs.json
-  async function loadGigs() {
+async function loadGigs() {
 
-const list = document.getElementById("gigs-list");
+  const list = document.getElementById("gigs-list");
 
-if (!list) return;
+  if (!list) return;
 
-try {
-  const res = await fetch("/.netlify/functions/gigs?nocache=" + Date.now());
-const data = await res.json();
+  try {
+    const res = await fetch("/.netlify/functions/gigs?nocache=" + Date.now());
+    const data = await res.json();
 
-if (!data.events || data.events.length === 0) {
-  list.innerHTML = "<li>No upcoming gigs</li>";
-  return;
-}
+    if (!data.events || data.events.length === 0) {
+      list.innerHTML = "<li>No upcoming gigs</li>";
+      return;
+    }
 
-list.innerHTML = "";
+    list.innerHTML = "";
 
-const formatter = new Intl.DateTimeFormat("en-GB", {
-  day: "numeric",
-  month: "long",
-  year: "numeric"
-});
+    const formatter = new Intl.DateTimeFormat("en-GB", {
+      day: "numeric",
+      month: "long",
+      year: "numeric"
+    });
 
-data.events.forEach(event => {
+    data.events.forEach(event => {
 
-  const date = new Date(event.start);
+      const date = new Date(event.start);
 
-  const li = document.createElement("li");
-  li.textContent = formatter.format(date) + " – " + event.title;
+      const li = document.createElement("li");
+      li.textContent = formatter.format(date) + " – " + event.title;
 
-  list.appendChild(li);
+      list.appendChild(li);
 
-});
-} catch (err) {
-list.innerHTML = "<li>Unable to load gigs</li>";
-}
+    });
+  } catch (err) {
+    list.innerHTML = "<li>Unable to load gigs</li>";
+  }
 
 }
 
 loadGigs();
+
+const aboutButton = document.getElementById("about-open-button");
+const aboutModal = document.getElementById("aboutModal");
+const closeModal = document.getElementById("closeModal");
+
+if (aboutButton && aboutModal && closeModal) {
+
+  aboutButton.addEventListener("click", () => {
+    aboutModal.style.display = "flex";
+  });
+
+  closeModal.addEventListener("click", () => {
+    aboutModal.style.display = "none";
+  });
+
+  window.addEventListener("click", (event) => {
+    if (event.target === aboutModal) {
+      aboutModal.style.display = "none";
+    }
+  });
+
+}
