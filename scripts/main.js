@@ -75,16 +75,16 @@ async function loadGigs() {
   } catch (err) {
     list.innerHTML = "<li>No gigs found</li>";
   }
-
 }
 
 function linkifyText(text) {
   if (!text) return "";
 
-  const urlRegex = /(https?:\/\/[^\s]+)/g;
+  const regex = /(https?:\/\/[^\s]+)(?:\s*<([^>]+)>)?/g;
 
-  return text.replace(urlRegex, (url) => {
-    return `<a href="${url}" target="_blank" rel="noopener noreferrer">${url}</a>`;
+  return text.replace(regex, (match, url, label) => {
+    const linkText = label || url;
+    return `<a href="${url}" target="_blank" rel="noopener noreferrer">${linkText}</a>`;
   });
 }
 
