@@ -134,6 +134,7 @@ main {
 }
 
 #gigs-list {
+  list-style: none;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -151,7 +152,7 @@ main {
   box-shadow: 0 14px 36px rgba(0, 0, 0, 0.4);
   text-align: left;
   overflow: hidden;
-  max-width: 700px;
+  max-width: 640px;
 }
 
 .gig-date {
