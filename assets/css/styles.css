@@ -141,6 +141,7 @@ footer {
   box-shadow: 0 14px 36px rgba(0, 0, 0, 0.4);
   text-align: left;
   overflow: hidden;
+  max-width: 700px;
 }
 
 .gig-date {
