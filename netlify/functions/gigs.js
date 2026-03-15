@@ -49,6 +49,8 @@ export default async () => {
 
     const summaryMatch = ("\n" + body).match(/\nSUMMARY:([^\n]+)/i);
     const dtStartMatch = ("\n" + body).match(/\nDTSTART(?:;[^:]*)?:([^\n]+)/i);
+    const locationMatch = ("\n" + body).match(/\nLOCATION:([^\n]+)/i);
+    const descriptionMatch = ("\n" + body).match(/\nDESCRIPTION:([^\n]+)/i);
 
     if (!dtStartMatch) continue;
 
@@ -59,6 +61,8 @@ export default async () => {
     events.push({
       title: summaryMatch ? summaryMatch[1].trim() : "Gig",
       start: start.toISOString(),
+      venue: locationMatch ? locationMatch[1].trim() : "",
+      description: descriptionMatch ? descriptionMatch[1].trim() : ""
     });
   }
 
