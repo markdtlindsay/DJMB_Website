@@ -42,11 +42,6 @@ async function loadGigs() {
     const res = await fetch("/.netlify/functions/gigs?nocache=" + Date.now());
     const data = await res.json();
 
-    if (!data.events || data.events.length === 0) {
-      list.innerHTML = "<li>No upcoming gigs</li>";
-      return;
-    }
-
     list.innerHTML = "";
 
     const formatter = new Intl.DateTimeFormat("en-GB", {
@@ -82,7 +77,7 @@ async function loadGigs() {
 
     });
   } catch (err) {
-    list.innerHTML = "<li>No gigs found</li>";
+    list.innerHTML = "";
   }
 }
 

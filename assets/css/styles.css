@@ -17,7 +17,7 @@ body {
 }
 
 img {
-  max-width: 40%;
+  max-width: 100%;
   height: auto;
   display: block;
 }
@@ -43,7 +43,7 @@ footer {
 }
 
 main {
-  max-width: 900px;
+  max-width: 820px;
   margin: 0 auto;
   padding: 2rem 1rem;
 }
@@ -84,6 +84,15 @@ main {
 #whatsapp-button {
   bottom: 1.5rem;
   filter: brightness(0) saturate(100%) invert(46%) sepia(96%) saturate(463%) hue-rotate(97deg) brightness(93%) contrast(90%);
+}
+
+#about {
+  background: rgba(0, 30, 60, 0.35);
+  border: 1px solid rgba(0, 200, 255, 0.25);
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
+  margin-top: 2rem;
+  box-shadow: 0 0 18px rgba(0, 200, 255, 0.12);
 }
 
 #about-open-button {
@@ -142,6 +151,18 @@ main {
   align-items: center;
 }
 
+#gigs-list:empty::before {
+  content: "No upcoming gigs announced yet.";
+  display: block;
+  text-align: center;
+  color: rgba(255,255,255,0.6);
+  padding: 1rem 0;
+}
+
+#gigs-list .gig-card + .gig-card {
+  margin-top: 0.5rem;
+}
+
 .gig-card {
   background:
     radial-gradient(circle at top left, rgba(0, 200, 255, 0.08), transparent 35%),
@@ -152,7 +173,7 @@ main {
   box-shadow: 0 14px 36px rgba(0, 0, 0, 0.4);
   text-align: left;
   overflow: hidden;
-  max-width: 640px;
+  max-width: 100%;
 }
 
 .gig-date {
@@ -167,21 +188,31 @@ main {
   color: #ffffff;
   font-size: 1.6rem;
   font-weight: 700;
+  margin-bottom: 0.2rem;
 }
 
 .gig-venue {
   color: #7fe7ff;
   font-weight: 600;
+  opacity: 0.9;
+}
+
+.gig-venue::before {
+  content: "📍 ";
 }
 
 .gig-description {
   color: rgba(255, 255, 255, 0.85);
+  margin-top: 0.4rem;
+  line-height: 1.45;
 }
 
 .gig-description a {
-  color: #4da3ff;
+  color: #7fe7ff;
   font-weight: 600;
   text-decoration: none;
+  border-bottom: 1px solid rgba(0, 200, 255, 0.5);
+  padding-bottom: 1px;
 }
 
 .gig-description a:hover {
@@ -214,6 +245,31 @@ main {
 }
 
 section h2 {
+  color: #7fe7ff;
   text-align: center;
   margin-bottom: 1.5rem;
+  text-shadow: 0 0 8px rgba(0, 200, 255, 0.5);
+}
+
+#gigs {
+  background: rgba(0, 30, 60, 0.35);
+  border: 1px solid rgba(0, 200, 255, 0.25);
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
+  margin-top: 2rem;
+  box-shadow: 0 0 18px rgba(0, 200, 255, 0.12);
+}
+
+#gigs h2 {
+  margin-bottom: 1.8rem;
+}
+
+.gig-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.gig-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(0, 200, 255, 0.65);
+  box-shadow: 0 0 18px rgba(0, 200, 255, 0.18), 0 14px 36px rgba(0, 0, 0, 0.4);
 }
