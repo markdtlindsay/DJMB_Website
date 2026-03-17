@@ -72,6 +72,17 @@ footer {
 }
 
 .countdown-item {
+  width: 90px;
+  height: 90px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: rgba(0, 30, 60, 0.45);
+  border: 1px solid rgba(0, 200, 255, 0.3);
+  border-radius: 14px;
+  box-shadow: 0 0 18px rgba(0, 200, 255, 0.12);
   position: relative;
   overflow: hidden;
 }
@@ -83,10 +94,6 @@ footer {
   background: linear-gradient(120deg, transparent, rgba(0, 200, 255, 0.15), transparent);
   opacity: 0;
   transition: opacity 0.3s ease;
-}
-
-.countdown-item:hover::before {
-  opacity: 1;
 }
 
 @keyframes countdownPulse {
@@ -374,15 +381,7 @@ section h2 {
   margin-top: 2rem;
 }
 
-.countdown-item {
-  min-width: 90px;
-  padding: 1rem 0.8rem;
-  text-align: center;
-  background: rgba(0, 30, 60, 0.45);
-  border: 1px solid rgba(0, 200, 255, 0.3);
-  border-radius: 14px;
-  box-shadow: 0 0 18px rgba(0, 200, 255, 0.12);
-}
+
 
 .countdown-number {
   font-size: 2.2rem;
@@ -417,4 +416,28 @@ section h2 {
 
 #countdown-view img {
   animation: logoGlowPulse 2.5s ease-in-out infinite;
+}
+
+@media (max-width: 480px) {
+
+  #countdown-view img {
+    max-width: 120px;
+  }
+
+  #countdown-view h1 {
+    font-size: 1.6rem;
+  }
+
+  .countdown {
+    gap: 0.4rem;
+  }
+
+  .countdown-number {
+    font-size: 1.6rem;
+  }
+
+  .countdown-label {
+    font-size: 0.65rem;
+  }
+
 }
