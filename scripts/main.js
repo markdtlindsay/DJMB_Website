@@ -20,8 +20,12 @@ function updateCountdown() {
   const minutes = Math.floor((diff / (1000 * 60)) % 60);
   const seconds = Math.floor((diff / 1000) % 60);
 
-  countdownTimer.textContent =
-    `${days}d ${hours}h ${minutes}m ${seconds}s`;
+  const pad = (num) => String(num).padStart(2, "0");
+
+document.getElementById("countdown-days").textContent = pad(days);
+document.getElementById("countdown-hours").textContent = pad(hours);
+document.getElementById("countdown-minutes").textContent = pad(minutes);
+document.getElementById("countdown-seconds").textContent = pad(seconds);
 }
 
 setInterval(updateCountdown, 1000);
