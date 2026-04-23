@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DJ Marky Boy</title>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-J6W3SD5P13"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-J6W3SD5P13');
+  </script>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/countdown.css">
+  <link rel="stylesheet" href="assets/css/launch-effects.css">
+</head>
+
+<body>
+  <!-- Global effect layers -->
+  <div id="fireworks-layer" hidden aria-hidden="true"></div>
+  <div id="live-banner" hidden aria-hidden="true">
+    <span class="bunting-string" aria-hidden="true"></span>
+    <span class="bunting-flag bunting-flag-w">W</span>
+    <span class="bunting-flag bunting-flag-e">E</span>
+    <span class="bunting-flag bunting-flag-a">A</span>
+    <span class="bunting-flag bunting-flag-r">R</span>
+    <span class="bunting-flag bunting-flag-e2">E</span>
+    <span class="bunting-flag bunting-flag-l">L</span>
+    <span class="bunting-flag bunting-flag-i">I</span>
+    <span class="bunting-flag bunting-flag-v">V</span>
+    <span class="bunting-flag bunting-flag-e3">E</span>
+  </div>
+  <div id="ambient-effects-layer" aria-hidden="true"></div>
+
+  <!-- Countdown developer tools -->
+  <aside id="countdown-dev-panel" hidden aria-label="Countdown test controls">
+    <div class="countdown-dev-header">
+      <p class="countdown-dev-title">Countdown Test</p>
+      <button id="countdown-dev-toggle" type="button" class="countdown-dev-toggle" aria-expanded="true"
+        aria-controls="countdown-dev-content">Hide</button>
+    </div>
+    <div id="countdown-dev-content">
+      <div class="countdown-dev-buttons">
+        <button type="button" data-countdown-seconds="10">10s</button>
+        <button type="button" data-countdown-seconds="70">1m 10s</button>
+        <button type="button" data-countdown-seconds="3610">1h 10s</button>
+        <button type="button" data-countdown-seconds="86410">1d 10s</button>
+      </div>
+      <form id="countdown-dev-form" class="countdown-dev-form">
+        <label for="countdown-dev-seconds">Seconds</label>
+        <input id="countdown-dev-seconds" name="seconds" type="number" min="1" step="1" value="5">
+        <button type="submit">Start</button>
+      </form>
+      <button id="countdown-dev-clear" type="button" class="countdown-dev-clear">Back to live date</button>
+    </div>
+  </aside>
+
+  <!-- Countdown view -->
+  <div id="countdown-view" hidden>
+    <main>
+      <img src="assets/img/DJ_Marky_Boy_Logo_Final.png" alt="DJ Marky Boy logo">
+      <h1>DJ Marky Boy</h1>
+      <p>Launching in:</p>
+      <div id="countdown-timer" class="countdown">
+        <div class="countdown-item">
+          <div class="countdown-number" id="countdown-days">00</div>
+          <div class="countdown-label">Days</div>
+        </div>
+
+        <div class="countdown-item">
+          <div class="countdown-number" id="countdown-hours">00</div>
+          <div class="countdown-label">Hours</div>
+        </div>
+
+        <div class="countdown-item">
+          <div class="countdown-number" id="countdown-minutes">00</div>
+          <div class="countdown-label">Minutes</div>
+        </div>
+
+        <div class="countdown-item">
+          <div class="countdown-number" id="countdown-seconds">00</div>
+          <div class="countdown-label">Seconds</div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Live site view -->
+  <div id="site-view" hidden>
+    <header>
+      <img id="site-logo" src="assets/img/DJ_Marky_Boy_Logo_Final.png" alt="DJ Marky Boy logo">
+      <h1>DJ Marky Boy</h1>
+      <p>DJ | Events | Good vibes</p>
+      <div class="feature-panel-actions">
+        <button id="about-open-button" class="feature-panel-button" type="button">About me</button>
+        <button id="socials-open-button" class="feature-panel-button socials-trigger" type="button">Socials</button>
+      </div>
+    </header>
+
+    <div class="container">
+
+      <main>
+        <section id="gigs">
+          <h2>Upcoming Gigs</h2>
+          <div id="gigs-list">
+            Loading gigs...
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <footer>
+      <p>&copy; <span id="copyright-year"></span> DJ Marky Boy</p>
+      <p class="site-credit">Website by Mark Watson</p>
+    </footer>
+
+    <div class="social-contact-wrap" aria-label="Contact me links">
+      <p class="social-contact-label">Socials</p>
+      <div class="social-contact-stack">
+        <a id="soundcloud-button" class="social-float social-float-soundcloud" href="https://soundcloud.com/mark-watson-865481995" target="_blank"
+          rel="noopener noreferrer" aria-label="Visit DJ Marky Boy on SoundCloud">
+          <img src="assets/icons/soundcloud.svg" alt="SoundCloud Icon">
+        </a>
+
+        <a id="whatsapp-button" class="social-float social-float-whatsapp" href="https://wa.me/447483816391" target="_blank"
+          rel="noopener noreferrer" aria-label="Contact DJ Marky Boy on WhatsApp">
+          <img src="assets/icons/whatsapp.svg" alt="WhatsApp Icon">
+        </a>
+
+        <a id="instagram-button" class="social-float social-float-instagram" href="https://instagram.com/_djmarkyboy_ravecity/" target="_blank"
+          rel="noopener noreferrer" aria-label="Visit DJ Marky Boy on Instagram">
+          <img src="assets/icons/instagram.svg" alt="Instagram Icon">
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- About modal -->
+  <div id="aboutModal" class="modal">
+    <div class="modal-content">
+      <button id="closeModal" class="modal-close" type="button" aria-label="Close About me panel">&times;</button>
+
+      <p class="modal-kicker">About me</p>
+      <h2>DJ Marky Boy</h2>
+
+      <p class="modal-lead">I’m <strong>DJ Marky Boy</strong> – full of energy, big beats, and party vibes!</p>
+
+      <p>I have <strong>Autism</strong> and <strong>ADHD</strong>, and that’s my superpower. It’s what makes me
+        creative, enthusiastic, and brilliant at getting people excited. I bring that spark to every event – whether
+        it’s a kids’ party, a silent disco, a wedding, or a karaoke night.</p>
+
+      <p>I love <strong>GBX</strong>, <strong>hardstyle</strong>, and <strong>rawstyle</strong> – and I’ve got the
+        playlists to prove it. I’m great at organising games, reading the crowd, and making sure everyone feels included
+        and safe.</p>
+
+      <div class="modal-notes">
+        <p><strong>A couple of quick things:</strong></p>
+        <p>🚫 No fireworks</p>
+        <p>🎈 No balloons (unless helium!)</p>
+      </div>
+
+      <p>My hours are flexible, I work with a deposit, and I’m all about making your event
+        <strong>unforgettable</strong>.
+      </p>
+
+    </div>
+  </div>
+
+  <!-- Socials modal -->
+  <div id="socialsModal" class="modal">
+    <div class="modal-content social-modal-content">
+      <button id="closeSocialsModal" class="modal-close" type="button" aria-label="Close socials panel">&times;</button>
+
+      <div class="social-contact-wrap social-contact-wrap-modal" aria-label="Social media links">
+        <p class="social-contact-label">Socials</p>
+        <div class="social-contact-stack">
+          <a class="social-float social-float-soundcloud" href="https://soundcloud.com/mark-watson-865481995" target="_blank"
+            rel="noopener noreferrer" aria-label="Visit DJ Marky Boy on SoundCloud">
+            <img src="assets/icons/soundcloud.svg" alt="SoundCloud Icon">
+          </a>
+
+          <a class="social-float social-float-whatsapp" href="https://wa.me/447483816391" target="_blank"
+            rel="noopener noreferrer" aria-label="Contact DJ Marky Boy on WhatsApp">
+            <img src="assets/icons/whatsapp.svg" alt="WhatsApp Icon">
+          </a>
+
+          <a class="social-float social-float-instagram" href="https://instagram.com/_djmarkyboy_ravecity/" target="_blank"
+            rel="noopener noreferrer" aria-label="Visit DJ Marky Boy on Instagram">
+            <img src="assets/icons/instagram.svg" alt="Instagram Icon">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Gig details modal -->
+  <div id="gigModal" class="modal" aria-hidden="true">
+    <div class="modal-content gig-modal-content">
+      <button id="closeGigModal" class="modal-close" type="button" aria-label="Close gig details">&times;</button>
+
+      <p class="modal-kicker">Upcoming gig</p>
+      <h2 id="gigModalTitle">Gig details</h2>
+      <p id="gigModalDate" class="modal-lead"></p>
+      <div id="gigModalMeta" class="gig-modal-meta" hidden></div>
+      <div id="gigModalDescription" class="gig-modal-description"></div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="scripts/celebration.js"></script>
+  <script src="scripts/countdown.js"></script>
+  <script src="scripts/ambient.js"></script>
+  <script src="scripts/site.js"></script>
+</body>
+
+</html>

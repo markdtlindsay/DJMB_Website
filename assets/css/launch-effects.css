@@ -1,0 +1,429 @@
+#fireworks-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 4;
+  overflow: hidden;
+}
+
+#fireworks-layer.is-winding-down {
+  animation: celebrationFadeOut 1800ms ease forwards;
+}
+
+#live-banner {
+  position: fixed;
+  top: 0.6rem;
+  left: 50%;
+  z-index: 6;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0;
+  padding: 0 1rem;
+  opacity: 0;
+  transform: translateX(-50%) translateY(-150%) rotate(0deg);
+  transform-origin: top center;
+}
+
+#live-banner::before,
+#live-banner::after {
+  content: "";
+  position: absolute;
+  top: -72px;
+  width: 2px;
+  height: 74px;
+  background: linear-gradient(180deg, rgba(255, 248, 226, 0.95), rgba(255, 191, 71, 0.28));
+  box-shadow: 0 0 10px rgba(234, 252, 255, 0.18);
+}
+
+#live-banner::before {
+  left: 1.5rem;
+}
+
+#live-banner::after {
+  right: 1.5rem;
+}
+
+.bunting-string {
+  position: absolute;
+  top: 0.1rem;
+  left: 1.5rem;
+  right: 1.5rem;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(255, 248, 226, 0.6), rgba(255, 248, 226, 0.95), rgba(255, 248, 226, 0.6));
+  box-shadow: 0 0 10px rgba(255, 248, 226, 0.18);
+}
+
+.bunting-flag {
+  position: relative;
+  width: clamp(28px, 4vw, 36px);
+  height: clamp(42px, 6vw, 52px);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 0.5rem;
+  color: #ffffff;
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  clip-path: polygon(0 0, 100% 0, 100% 78%, 50% 100%, 0 78%);
+  box-shadow:
+    0 12px 24px rgba(0, 0, 0, 0.22),
+    0 0 18px rgba(255, 255, 255, 0.08);
+}
+
+.bunting-flag::before {
+  content: "";
+  position: absolute;
+  top: -0.18rem;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 248, 226, 0.9);
+  transform: translateX(-50%);
+  box-shadow: 0 0 10px rgba(255, 248, 226, 0.22);
+}
+
+.bunting-flag-w,
+.bunting-flag-l {
+  background: linear-gradient(180deg, #ff4d6d 0%, #d93b5b 100%);
+}
+
+.bunting-flag-e,
+.bunting-flag-e3 {
+  background: linear-gradient(180deg, #ff9f1c 0%, #f07f00 100%);
+}
+
+.bunting-flag-a,
+.bunting-flag-v {
+  background: linear-gradient(180deg, #ffe66d 0%, #f5c542 100%);
+  color: #0f2747;
+}
+
+.bunting-flag-r,
+.bunting-flag-i {
+  background: linear-gradient(180deg, #2ec4b6 0%, #19a798 100%);
+}
+
+.bunting-flag-e2 {
+  background: linear-gradient(180deg, #3a86ff 0%, #1e63d6 100%);
+}
+
+#live-banner .bunting-flag:nth-child(4),
+#live-banner .bunting-flag:nth-child(7) {
+  margin-left: 0.65rem;
+}
+
+#live-banner.is-visible {
+  animation: liveBannerDrop 2600ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+#live-banner.is-rolling-up {
+  animation: liveBannerRollUp 1800ms cubic-bezier(0.55, 0.06, 0.68, 0.19) forwards;
+}
+
+#countdown-view.final-minute main::before {
+  animation: finalMinuteGlow 1.5s ease-in-out infinite;
+}
+
+#countdown-view.final-minute .countdown-item {
+  box-shadow:
+    0 0 14px rgba(0, 200, 255, 0.22),
+    0 0 28px rgba(0, 200, 255, 0.12);
+}
+
+#countdown-view.final-minute #countdown-seconds {
+  animation: countdownPulse 0.6s ease-in-out infinite;
+}
+
+#countdown-view.launching {
+  overflow: hidden;
+}
+
+#countdown-view.launching main > *:not(img) {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+#countdown-view.launching img {
+  position: relative;
+  z-index: 5;
+}
+
+#countdown-view.shatter main {
+  animation: countdownShatter 900ms ease-in forwards;
+  transform-origin: center center;
+}
+
+#countdown-view.shatter .countdown-item:nth-child(1) {
+  animation: shatterPieceLeft 900ms ease-in forwards;
+}
+
+#countdown-view.shatter .countdown-item:nth-child(2) {
+  animation: shatterPieceUp 900ms ease-in forwards;
+}
+
+#countdown-view.shatter .countdown-item:nth-child(3) {
+  animation: shatterPieceDown 900ms ease-in forwards;
+}
+
+#countdown-view.shatter .countdown-item:nth-child(4) {
+  animation: shatterPieceRight 900ms ease-in forwards;
+}
+
+.launch-flash {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at center, rgba(127, 231, 255, 0.35) 0%, rgba(0, 204, 255, 0.18) 28%, rgba(0, 0, 0, 0) 70%);
+  opacity: 0;
+  animation: launchFlashPulse 900ms ease-out forwards;
+}
+
+.launch-spark {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 14px;
+  height: 22px;
+  margin-left: -7px;
+  margin-top: -11px;
+  border-radius: 4px;
+  opacity: 0;
+  animation: launchSparkBurst 1100ms ease-out forwards;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.18);
+}
+
+.launch-confetti {
+  position: absolute;
+  top: -8%;
+  width: 10px;
+  height: 18px;
+  border-radius: 3px;
+  opacity: 0;
+  animation: confettiFall 3800ms cubic-bezier(0.16, 0.78, 0.31, 1) forwards;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.08);
+}
+
+.launch-confetti:nth-child(4n) {
+  background: #ff4d6d;
+}
+
+.launch-confetti:nth-child(4n + 1) {
+  background: #ffe66d;
+}
+
+.launch-confetti:nth-child(4n + 2) {
+  background: #2ec4b6;
+}
+
+.launch-confetti:nth-child(4n + 3) {
+  background: #3a86ff;
+}
+
+.launch-spark:nth-child(2n) {
+  background: #ff4d6d;
+}
+
+.launch-spark:nth-child(3n) {
+  background: #ff9f1c;
+}
+
+.launch-spark:nth-child(4n) {
+  background: #ffe66d;
+}
+
+.launch-spark:nth-child(5n) {
+  background: #2ec4b6;
+}
+
+.launch-spark:nth-child(6n) {
+  background: #3a86ff;
+}
+
+.launch-spark:nth-child(7n) {
+  background: #8338ec;
+}
+
+@keyframes countdownShatter {
+  0% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+    filter: blur(0);
+  }
+
+  35% {
+    opacity: 1;
+    transform: scale(1.04) rotate(-1deg);
+    filter: blur(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.18) rotate(6deg);
+    filter: blur(12px);
+  }
+}
+
+@keyframes shatterPieceLeft {
+  to {
+    opacity: 0;
+    transform: translate(-140px, 50px) rotate(-18deg) scale(0.9);
+  }
+}
+
+@keyframes shatterPieceUp {
+  to {
+    opacity: 0;
+    transform: translate(-40px, -120px) rotate(10deg) scale(0.9);
+  }
+}
+
+@keyframes shatterPieceDown {
+  to {
+    opacity: 0;
+    transform: translate(30px, 120px) rotate(-10deg) scale(0.9);
+  }
+}
+
+@keyframes shatterPieceRight {
+  to {
+    opacity: 0;
+    transform: translate(140px, -40px) rotate(18deg) scale(0.9);
+  }
+}
+
+@keyframes launchSparkBurst {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) rotate(0deg) scale(0.4);
+  }
+
+  12% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform:
+      translate(var(--spark-x, 0), var(--spark-y, 0))
+      rotate(520deg)
+      scale(1.1);
+  }
+}
+
+@keyframes launchFlashPulse {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  18% {
+    opacity: 1;
+    transform: scale(1.02);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes confettiFall {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -30px, 0) rotate(0deg) scale(0.7);
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform:
+      translate3d(var(--confetti-drift, 0), 120vh, 0)
+      rotate(var(--confetti-rotate, 540deg))
+      scale(1);
+  }
+}
+
+@keyframes celebrationFadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes liveBannerDrop {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-150%) rotate(0deg);
+  }
+
+  18% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(46px) rotate(-9deg);
+  }
+
+  34% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(46px) rotate(7deg);
+  }
+
+  48% {
+    transform: translateX(-50%) translateY(46px) rotate(-5deg);
+  }
+
+  62% {
+    transform: translateX(-50%) translateY(46px) rotate(3deg);
+  }
+
+  76% {
+    transform: translateX(-50%) translateY(46px) rotate(-2deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(46px) rotate(0deg);
+  }
+}
+
+@keyframes liveBannerRollUp {
+  0% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(46px) rotate(0deg);
+  }
+
+  30% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(28px) scale(0.98) rotate(4deg);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-150%) scale(0.82) rotate(-3deg);
+  }
+}
+
+@keyframes finalMinuteGlow {
+  0% {
+    opacity: 0.45;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.9;
+    transform: scale(1.03);
+  }
+
+  100% {
+    opacity: 0.45;
+    transform: scale(1);
+  }
+}
