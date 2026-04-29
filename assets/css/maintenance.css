@@ -1,0 +1,304 @@
+#maintenance-view {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background:
+    radial-gradient(circle at top, rgba(0, 200, 255, 0.14), transparent 38%),
+    linear-gradient(180deg, rgba(2, 12, 24, 0.96), rgba(4, 19, 38, 0.98));
+}
+
+#maintenance-view main {
+  width: min(100%, 680px);
+  position: relative;
+  padding: 2.25rem;
+  border-radius: 28px;
+  border: 1px solid rgba(127, 231, 255, 0.18);
+  background: linear-gradient(180deg, rgba(4, 17, 32, 0.88), rgba(4, 24, 46, 0.9));
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+  text-align: center;
+}
+
+#maintenance-view main::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at center, rgba(0, 200, 255, 0.12), transparent 70%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.03), transparent 60%);
+  z-index: -1;
+  filter: blur(20px);
+}
+
+#maintenance-logo {
+  display: block;
+  margin: 1.25rem auto 1rem;
+  max-width: 220px;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 0 10px rgba(0, 200, 255, 0.45)) drop-shadow(0 0 22px rgba(0, 200, 255, 0.2));
+  animation: logoGlowPulse 4s ease-in-out infinite;
+}
+
+#maintenance-view h1 {
+  margin-bottom: 0.5rem;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  color: #7fe7ff;
+  text-shadow: 0 0 10px rgba(0, 200, 255, 0.5);
+}
+
+#maintenance-view p {
+  margin: 0 auto;
+  opacity: 0.8;
+  font-size: 0.95rem;
+}
+
+#maintenance-heading {
+  max-width: 34rem;
+  color: #f7fdff;
+  font-size: 1rem;
+  line-height: 1.7;
+  letter-spacing: 0.02em;
+}
+
+#maintenance-heading::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 2px;
+  margin: 0.8rem auto 0;
+  background: linear-gradient(90deg, transparent, #00ccff, transparent);
+  opacity: 0.7;
+}
+
+#maintenance-detail {
+  max-width: 38rem;
+  margin-top: 1rem;
+  color: rgba(234, 252, 255, 0.82);
+  line-height: 1.75;
+}
+
+.maintenance-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.95rem;
+  border: 1px solid rgba(127, 231, 255, 0.2);
+  border-radius: 999px;
+  background: rgba(6, 31, 53, 0.68);
+  color: #bdf3ff;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.maintenance-status::before {
+  content: "";
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 999px;
+  background: #00ccff;
+  box-shadow: 0 0 16px rgba(0, 204, 255, 0.7);
+}
+
+#maintenance-dev-panel {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 3000;
+  width: min(320px, calc(100vw - 2rem));
+  max-height: calc(100dvh - 2rem);
+  overflow: auto;
+  padding: 1rem;
+  border: 1px solid rgba(0, 200, 255, 0.35);
+  border-radius: 16px;
+  background: rgba(3, 21, 42, 0.92);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(10px);
+  transition:
+    transform 220ms ease,
+    width 220ms ease,
+    padding 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.maintenance-dev-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.maintenance-dev-title {
+  margin: 0;
+  color: #7fe7ff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.maintenance-dev-toggle {
+  border: 1px solid rgba(0, 200, 255, 0.45);
+  border-radius: 999px;
+  padding: 0.35rem 0.75rem;
+  background: rgba(0, 30, 60, 0.8);
+  color: #eafcff;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+#maintenance-dev-content {
+  margin-top: 0.75rem;
+}
+
+#maintenance-dev-panel.is-collapsed {
+  width: 2.75rem;
+  max-width: 2.75rem;
+  overflow: visible;
+  padding: 0.45rem;
+  border-color: rgba(0, 200, 255, 0.28);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
+}
+
+#maintenance-dev-panel.is-collapsed .maintenance-dev-header {
+  justify-content: center;
+}
+
+#maintenance-dev-panel.is-collapsed .maintenance-dev-title {
+  display: none;
+}
+
+#maintenance-dev-panel.is-collapsed .maintenance-dev-toggle {
+  min-width: 1.85rem;
+  width: 1.85rem;
+  height: 1.85rem;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.maintenance-dev-section + .maintenance-dev-section {
+  margin-top: 1rem;
+}
+
+.maintenance-dev-section-title {
+  margin: 0 0 0.55rem;
+  color: rgba(189, 243, 255, 0.84);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.72rem;
+}
+
+.maintenance-dev-buttons {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
+}
+
+.maintenance-dev-buttons button,
+.maintenance-dev-form button,
+.maintenance-dev-refresh,
+.maintenance-dev-clear {
+  border: 1px solid rgba(0, 200, 255, 0.45);
+  border-radius: 10px;
+  background: rgba(0, 30, 60, 0.8);
+  color: #eafcff;
+  cursor: pointer;
+}
+
+.maintenance-dev-buttons button,
+.maintenance-dev-form button,
+.maintenance-dev-refresh,
+.maintenance-dev-clear {
+  padding: 0.65rem 0.8rem;
+}
+
+.maintenance-dev-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  align-items: end;
+}
+
+.maintenance-dev-form label {
+  grid-column: 1 / -1;
+  color: rgba(234, 252, 255, 0.75);
+  font-size: 0.85rem;
+}
+
+.maintenance-dev-form input {
+  grid-column: 1 / -1;
+  min-width: 0;
+  padding: 0.65rem 0.8rem;
+  border: 1px solid rgba(0, 200, 255, 0.25);
+  border-radius: 10px;
+  background: rgba(0, 10, 20, 0.7);
+  color: #eafcff;
+}
+
+.maintenance-dev-refresh,
+.maintenance-dev-clear {
+  width: 100%;
+  margin-top: 0.75rem;
+}
+
+.maintenance-dev-status {
+  margin: 1rem 0 0;
+  color: rgba(234, 252, 255, 0.82);
+  font-size: 0.84rem;
+  line-height: 1.6;
+}
+
+.maintenance-dev-status.is-error {
+  color: #ffd6dc;
+}
+
+.maintenance-dev-buttons button.is-active,
+.maintenance-dev-form button.is-active {
+  box-shadow: 0 0 18px rgba(0, 200, 255, 0.24);
+  background: rgba(8, 55, 90, 0.95);
+}
+
+.maintenance-dev-buttons button:hover,
+.maintenance-dev-form button:hover,
+.maintenance-dev-refresh:hover,
+.maintenance-dev-clear:hover,
+.maintenance-dev-toggle:hover {
+  box-shadow: 0 0 14px rgba(0, 200, 255, 0.18);
+}
+
+@media (max-width: 480px) {
+  #maintenance-dev-panel {
+    position: static;
+    width: min(calc(100% - 2rem), 360px);
+    max-height: none;
+    margin: calc(1rem + env(safe-area-inset-top, 0px)) auto 0.5rem;
+  }
+
+  #maintenance-view main {
+    padding: 1.5rem;
+    border-radius: 22px;
+  }
+
+  #maintenance-logo {
+    max-width: 170px;
+  }
+
+  #maintenance-view h1 {
+    font-size: 1.6rem;
+  }
+
+  .maintenance-dev-form {
+    grid-template-columns: 1fr;
+  }
+}

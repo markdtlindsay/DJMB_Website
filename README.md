@@ -5,18 +5,18 @@ This repository contains the source for the DJ Marky Boy website: a single-page 
 ## What's included
 
 - A landing page for DJ Marky Boy with branding, social links, and an upcoming gigs section
-- A countdown / launch mode for pre-launch use
+- A maintenance / launch gate for taking the site offline when needed
 - A Netlify Function that reads an ICS calendar feed and converts future events into JSON
 - Responsive styling tuned for desktop and mobile, including compact upcoming gig cards with a details modal
 
 ## Project structure
 
 - `index.html`
-  The main page markup for the live site, countdown view, modals, and social links.
+  The main page markup for the live site, maintenance view, modals, and social links.
 - `assets/`
   Images, icons, and CSS files used by the site.
 - `scripts/`
-  Frontend JavaScript for page behaviour, countdown logic, ambient effects, and gig rendering.
+  Frontend JavaScript for page behaviour, maintenance gate logic, ambient effects, celebration effects, and gig rendering.
 - `netlify/functions/gigs.js`
   Serverless function that fetches and parses the calendar feed for upcoming gigs.
 - `netlify.toml`
@@ -64,4 +64,10 @@ Deployment requirements:
 
 - The site includes Google Analytics via the tag configured in `index.html`
 - The gigs UI has been tuned for compact responsive display, especially on smaller screens
+- Maintenance copy is configured in `scripts/celebration.js` via the `MAINTENANCE_MODE` object
+- Open the maintenance control panel with `?maintenanceDev=1`
+- Public live or maintenance state is stored by `netlify/functions/site-mode.js`
+- Set `MAINTENANCE_ADMIN_TOKEN` in Netlify to protect public mode changes
+- Optionally set `SITE_MODE_DEFAULT` to `live` or `maintenance` for the initial public mode
+- Launch celebration effects stay active for 7 days from `DEFAULT_LAUNCH_AT`
 - If needed, repository history can be squashed after a final tidy commit for a cleaner public project history

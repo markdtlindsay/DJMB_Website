@@ -42,7 +42,7 @@ footer {
 }
 
 #site-view[hidden],
-#countdown-view[hidden] {
+#maintenance-view[hidden] {
   display: none !important;
 }
 

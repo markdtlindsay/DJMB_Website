@@ -13,7 +13,7 @@
     gtag('config', 'G-J6W3SD5P13');
   </script>
   <link rel="stylesheet" href="assets/css/styles.css">
-  <link rel="stylesheet" href="assets/css/countdown.css">
+  <link rel="stylesheet" href="assets/css/maintenance.css">
   <link rel="stylesheet" href="assets/css/launch-effects.css">
 </head>
 
@@ -34,56 +34,51 @@
   </div>
   <div id="ambient-effects-layer" aria-hidden="true"></div>
 
-  <!-- Countdown developer tools -->
-  <aside id="countdown-dev-panel" hidden aria-label="Countdown test controls">
-    <div class="countdown-dev-header">
-      <p class="countdown-dev-title">Countdown Test</p>
-      <button id="countdown-dev-toggle" type="button" class="countdown-dev-toggle" aria-expanded="true"
-        aria-controls="countdown-dev-content">Hide</button>
+  <!-- Maintenance developer tools -->
+  <aside id="maintenance-dev-panel" hidden aria-label="Maintenance controls">
+    <div class="maintenance-dev-header">
+      <p class="maintenance-dev-title">Maintenance Control</p>
+      <button id="maintenance-dev-toggle" type="button" class="maintenance-dev-toggle" aria-expanded="true"
+        aria-controls="maintenance-dev-content">Hide</button>
     </div>
-    <div id="countdown-dev-content">
-      <div class="countdown-dev-buttons">
-        <button type="button" data-countdown-seconds="10">10s</button>
-        <button type="button" data-countdown-seconds="70">1m 10s</button>
-        <button type="button" data-countdown-seconds="3610">1h 10s</button>
-        <button type="button" data-countdown-seconds="86410">1d 10s</button>
-      </div>
-      <form id="countdown-dev-form" class="countdown-dev-form">
-        <label for="countdown-dev-seconds">Seconds</label>
-        <input id="countdown-dev-seconds" name="seconds" type="number" min="1" step="1" value="5">
-        <button type="submit">Start</button>
-      </form>
-      <button id="countdown-dev-clear" type="button" class="countdown-dev-clear">Back to live date</button>
+    <div id="maintenance-dev-content">
+      <section class="maintenance-dev-section" aria-label="Preview mode">
+        <p class="maintenance-dev-section-title">Preview</p>
+        <div class="maintenance-dev-buttons">
+          <button type="button" data-preview-mode="auto">Follow public mode</button>
+          <button type="button" data-preview-mode="live">Show live</button>
+          <button type="button" data-preview-mode="maintenance">Show maintenance</button>
+        </div>
+      </section>
+      <section class="maintenance-dev-section" aria-label="Public mode">
+        <p class="maintenance-dev-section-title">Public website</p>
+        <form id="maintenance-dev-form" class="maintenance-dev-form">
+          <label for="maintenance-admin-token">Admin token</label>
+          <input id="maintenance-admin-token" name="token" type="password" autocomplete="current-password"
+            placeholder="Enter Netlify admin token">
+          <button type="submit" data-public-mode="maintenance">Set maintenance</button>
+          <button type="submit" data-public-mode="live">Set live</button>
+        </form>
+        <button id="maintenance-dev-refresh" type="button" class="maintenance-dev-refresh">Refresh public mode</button>
+      </section>
+      <p id="maintenance-dev-status" class="maintenance-dev-status" aria-live="polite">
+        Preview follows the public website mode.
+      </p>
+      <button id="maintenance-dev-clear" type="button" class="maintenance-dev-clear">Reset preview override</button>
     </div>
   </aside>
 
-  <!-- Countdown view -->
-  <div id="countdown-view" hidden>
+  <!-- Maintenance view -->
+  <div id="maintenance-view" hidden>
     <main>
-      <img src="assets/img/DJ_Marky_Boy_Logo_Final.png" alt="DJ Marky Boy logo">
+      <p id="maintenance-status" class="maintenance-status">Temporary maintenance mode</p>
+      <img id="maintenance-logo" src="assets/img/DJ_Marky_Boy_Logo_Final.png" alt="DJ Marky Boy logo">
       <h1>DJ Marky Boy</h1>
-      <p>Launching in:</p>
-      <div id="countdown-timer" class="countdown">
-        <div class="countdown-item">
-          <div class="countdown-number" id="countdown-days">00</div>
-          <div class="countdown-label">Days</div>
-        </div>
-
-        <div class="countdown-item">
-          <div class="countdown-number" id="countdown-hours">00</div>
-          <div class="countdown-label">Hours</div>
-        </div>
-
-        <div class="countdown-item">
-          <div class="countdown-number" id="countdown-minutes">00</div>
-          <div class="countdown-label">Minutes</div>
-        </div>
-
-        <div class="countdown-item">
-          <div class="countdown-number" id="countdown-seconds">00</div>
-          <div class="countdown-label">Seconds</div>
-        </div>
-      </div>
+      <p id="maintenance-heading">We’re tuning the decks and will be back shortly.</p>
+      <p id="maintenance-detail" class="maintenance-detail">
+        The site is temporarily offline while we refresh a few things behind the scenes. For urgent bookings or
+        updates, drop a message on Instagram or WhatsApp and we’ll get back to you.
+      </p>
     </main>
   </div>
 
@@ -210,7 +205,7 @@
 
   <!-- Scripts -->
   <script src="scripts/celebration.js"></script>
-  <script src="scripts/countdown.js"></script>
+  <script src="scripts/maintenance.js"></script>
   <script src="scripts/ambient.js"></script>
   <script src="scripts/site.js"></script>
 </body>

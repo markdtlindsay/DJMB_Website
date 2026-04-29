@@ -1,45 +1,26 @@
 (() => {
-  // Launch configuration
-  const CELEBRATION_WEEKS = 4;
+  const MAINTENANCE_MODE = {
+    status: "Temporary maintenance mode",
+    heading: "We're tuning the decks and will be back shortly.",
+    detail:
+      "The site is temporarily offline while we refresh a few things behind the scenes. For urgent bookings or updates, drop a message on Instagram or WhatsApp and we'll get back to you."
+  };
+
+  const CELEBRATION_DAYS = 7;
   const DEFAULT_LAUNCH_AT = new Date("2026-04-26T19:04:00");
-  const TEST_OFFSET_PARAM = "countdownTest";
-  const TEST_LAUNCH_AT_PARAM = "launchAt";
-  const DEV_PANEL_PARAM = "countdownDev";
+  const DEV_PANEL_PARAM = "maintenanceDev";
+  const PREVIEW_MODE_KEY = "djMarkyBoyMaintenancePreviewMode";
+  const ADMIN_TOKEN_KEY = "djMarkyBoyMaintenanceAdminToken";
+  const PUBLIC_MODE_ENDPOINT = "/.netlify/functions/site-mode";
 
-  // Query parsing
-  function getQueryParams() {
-    return new URLSearchParams(window.location.search);
-  }
-
-  function getQueryLaunchOverride() {
-    const params = getQueryParams();
-    const launchAtValue = params.get(TEST_LAUNCH_AT_PARAM);
-
-    if (launchAtValue) {
-      const explicitDate = new Date(launchAtValue);
-      if (!Number.isNaN(explicitDate.getTime())) {
-        return explicitDate;
-      }
-    }
-
-    const countdownTestValue = params.get(TEST_OFFSET_PARAM);
-    if (!countdownTestValue) {
-      return null;
-    }
-
-    const seconds = Number(countdownTestValue);
-    if (!Number.isFinite(seconds)) {
-      return null;
-    }
-
-    return new Date(Date.now() + seconds * 1000);
-  }
-
-  // Celebration timing
-  const LAUNCH_AT = getQueryLaunchOverride() ?? DEFAULT_LAUNCH_AT;
+  const LAUNCH_AT = DEFAULT_LAUNCH_AT;
   const CELEBRATION_END = new Date(
-    LAUNCH_AT.getTime() + CELEBRATION_WEEKS * 7 * 24 * 60 * 60 * 1000
+    LAUNCH_AT.getTime() + CELEBRATION_DAYS * 24 * 60 * 60 * 1000
   );
+
+  function getMaintenanceConfig() {
+    return { ...MAINTENANCE_MODE };
+  }
 
   function isCelebrationPeriod(now = new Date()) {
     return now >= LAUNCH_AT && now < CELEBRATION_END;
@@ -49,27 +30,6 @@
     return isCelebrationPeriod(now);
   }
 
-  // Countdown test helpers
-  function buildTestUrl(seconds = 20) {
-    const url = new URL(window.location.href);
-    url.searchParams.set(TEST_OFFSET_PARAM, String(seconds));
-    url.searchParams.delete(TEST_LAUNCH_AT_PARAM);
-    url.searchParams.set(DEV_PANEL_PARAM, "1");
-    return url.toString();
-  }
-
-  function startTestCountdown(seconds = 20) {
-    window.location.href = buildTestUrl(seconds);
-  }
-
-  function clearTestCountdown() {
-    const url = new URL(window.location.href);
-    url.searchParams.delete(TEST_OFFSET_PARAM);
-    url.searchParams.delete(TEST_LAUNCH_AT_PARAM);
-    window.location.href = url.toString();
-  }
-
-  // Launch visual effect
   function runLaunchFlash() {
     const layer = document.getElementById("fireworks-layer");
     const banner = document.getElementById("live-banner");
@@ -195,17 +155,19 @@
     }, celebrationDuration);
   }
 
-  // Public API
   window.DJMarkyBoyCelebration = {
+    MAINTENANCE_MODE,
+    CELEBRATION_DAYS,
     DEFAULT_LAUNCH_AT,
     LAUNCH_AT,
     CELEBRATION_END,
+    DEV_PANEL_PARAM,
+    PREVIEW_MODE_KEY,
+    ADMIN_TOKEN_KEY,
+    PUBLIC_MODE_ENDPOINT,
+    getMaintenanceConfig,
     isCelebrationPeriod,
     shouldShowLaunchEffects,
-    DEV_PANEL_PARAM,
-    buildTestUrl,
-    startTestCountdown,
-    clearTestCountdown,
     runLaunchFlash
   };
 })();

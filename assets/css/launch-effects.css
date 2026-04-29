@@ -124,53 +124,23 @@
   animation: liveBannerRollUp 1800ms cubic-bezier(0.55, 0.06, 0.68, 0.19) forwards;
 }
 
-#countdown-view.final-minute main::before {
-  animation: finalMinuteGlow 1.5s ease-in-out infinite;
-}
-
-#countdown-view.final-minute .countdown-item {
-  box-shadow:
-    0 0 14px rgba(0, 200, 255, 0.22),
-    0 0 28px rgba(0, 200, 255, 0.12);
-}
-
-#countdown-view.final-minute #countdown-seconds {
-  animation: countdownPulse 0.6s ease-in-out infinite;
-}
-
-#countdown-view.launching {
+#maintenance-view.launching {
   overflow: hidden;
 }
 
-#countdown-view.launching main > *:not(img) {
+#maintenance-view.launching main > *:not(img) {
   opacity: 0;
   transition: opacity 0.2s ease;
 }
 
-#countdown-view.launching img {
+#maintenance-view.launching img {
   position: relative;
   z-index: 5;
 }
 
-#countdown-view.shatter main {
-  animation: countdownShatter 900ms ease-in forwards;
+#maintenance-view.shatter main {
+  animation: maintenanceShatter 900ms ease-in forwards;
   transform-origin: center center;
-}
-
-#countdown-view.shatter .countdown-item:nth-child(1) {
-  animation: shatterPieceLeft 900ms ease-in forwards;
-}
-
-#countdown-view.shatter .countdown-item:nth-child(2) {
-  animation: shatterPieceUp 900ms ease-in forwards;
-}
-
-#countdown-view.shatter .countdown-item:nth-child(3) {
-  animation: shatterPieceDown 900ms ease-in forwards;
-}
-
-#countdown-view.shatter .countdown-item:nth-child(4) {
-  animation: shatterPieceRight 900ms ease-in forwards;
 }
 
 .launch-flash {
@@ -247,7 +217,7 @@
   background: #8338ec;
 }
 
-@keyframes countdownShatter {
+@keyframes maintenanceShatter {
   0% {
     opacity: 1;
     transform: scale(1) rotate(0deg);
